@@ -9,7 +9,7 @@ env:
   PROJECT_ID: ${{ secrets.RUN_PROJECT }}
   RUN_REGION: us-central1
   SERVICE_NAME: taggregate-api
-  VERSION: 0.0.$BUILD_NUMBER
+  VERSION: 0.0.${{ github.run_number }}
 
 jobs:
   setup-build-deploy:
