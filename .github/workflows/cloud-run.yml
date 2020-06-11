@@ -4,6 +4,14 @@ on:
   push:
     branches:
       - master
+    paths:
+      - 'api/**'
+      - 'cmd/**'
+      - 'internal/**'
+      - 'pkg/**'
+      - 'cloudbuild.yml'
+      - 'Dockerfile'
+      - 'go.mod'
 
 env:
   PROJECT_ID: ${{ secrets.RUN_PROJECT }}
