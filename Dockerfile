@@ -7,7 +7,7 @@ RUN go mod download
 
 COPY . ./
 
-RUN CGO_ENABLED=0 GOOS=linux go build -mod=readonly -v -o server
+RUN CGO_ENABLED=0 GOOS=linux go build cmd/taggapi -mod=readonly -v -o server
 
 FROM alpine:3
 
@@ -20,6 +20,6 @@ EXPOSE 8080
 
 ENV BUILD_VERSION=${BUILD_VERSION}
 
-COPY --from=builder /app/server /server
+COPY --from=builder /app/cmd/taggapi /server
 
 CMD ["/server"]

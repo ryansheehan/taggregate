@@ -1,0 +1,8 @@
+.github/
+.vscode/
+
+.gitignore
+cloudbuild.yml
+README.md
+
+cmd/taggapi/taggapi
