@@ -10,10 +10,15 @@ COPY . ./
 RUN CGO_ENABLED=0 GOOS=linux go build -mod=readonly -v -o server
 
 FROM alpine:3
+
+ARG BUILD_VERSION='0.0.0'
+
 RUN apk add --no-cache ca-certificates
 
 ENV PORT 8080
 EXPOSE 8080
+
+ENV VERSION=$VERSION
 
 COPY --from=builder /app/server /server
 

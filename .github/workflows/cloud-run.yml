@@ -32,7 +32,8 @@ jobs:
         run: |-
           gcloud builds submit \
             --quiet \
-            --tag "gcr.io/$PROJECT_ID/$SERVICE_NAME:$VERSION"
+            --substitutions=_SERVICE_NAME="$SERVICE_NAME,_VERSION=$VERSION"
+            --config cloudbuild.yml .
 
       # deploy the container to the gcp cloud run
       - name: Deploy
