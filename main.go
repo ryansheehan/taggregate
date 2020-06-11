@@ -17,15 +17,20 @@ func handler(w http.ResponseWriter, r *http.Request) {
 }
 
 func versionHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, getVersion())
+}
+
+func getVersion() string {
 	version := os.Getenv("BUILD_VERSION")
 	if len(version) == 0 {
 		version = "dev"
 	}
-	fmt.Fprintf(w, "BUILD_VERSION: %s", version)
+	return fmt.Sprintf("%s", version)
 }
 
 func main() {
 	log.Print("helloworld: starting server...")
+	log.Print("Version: ", getVersion())
 
 	http.HandleFunc("/", handler)
 	http.HandleFunc("/version", versionHandler)

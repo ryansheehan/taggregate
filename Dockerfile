@@ -18,7 +18,7 @@ RUN apk add --no-cache ca-certificates
 ENV PORT 8080
 EXPOSE 8080
 
-ENV VERSION=$VERSION
+ENV BUILD_VERSION=${BUILD_VERSION}
 
 COPY --from=builder /app/server /server
 
