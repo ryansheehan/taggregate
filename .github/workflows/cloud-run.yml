@@ -33,7 +33,6 @@ jobs:
           gcloud builds submit \
             --quiet \
             --substitutions=_SERVICE_NAME="$SERVICE_NAME,_VERSION=$VERSION"
-            --config cloudbuild.yml .
 
       # deploy the container to the gcp cloud run
       - name: Deploy
